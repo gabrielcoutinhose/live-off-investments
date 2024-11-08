@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Sora", sans-serif;
+  color: black;
+}
+
+body {
+  background-color: gray;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: darkgray;
+
+  padding: 10px;
+  margin: 10px;
+
+  height: auto;
+  width: auto;
+
+  border: none;
+  border-radius: 10px;
+}
+
+.form {
+  background-color: lightgray;
+
+  margin: 8px;
+  padding: 8px;
+
+  border: none;
+  border-radius: 8px;
+}
+
+.result {
+  margin-top: 20px;
+}
