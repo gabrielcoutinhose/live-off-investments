@@ -17,40 +17,46 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </head>
   <body>
     <main>
       <div class="container">
-        <div class="form">
-          <h1 class="text-center">What is your required value?</h1>
-          <div class="mb-3">
-            <label for="desiredReturn" class="form-label"
-              >Desired Return Value ()</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="desiredReturn"
-              placeholder="Enter the desired value"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="inflationRate" class="form-label"
-              >Average Inflation (%)</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="inflationRate"
-              placeholder="Enter average inflation"
-            />
-          </div>
-          <form id="calculatorForm">
+        <div class="calculatorForm">
+          <form id="financial-form">
+            <h1 class="text-center">What is your required value?</h1>
             <div class="mb-3">
-              <label for="monthlyValue" class="form-label"
-                >Monthly Value ()</label
+              <label for="desiredReturn" class="form-label"
+                >Desired Return Value ($)</label
               >
               <input
+                required
+                type="number"
+                class="form-control"
+                id="desiredReturn"
+                placeholder="Enter the desired value"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="inflationRate" class="form-label"
+                >Average Inflation (%)</label
+              >
+              <input
+                required
+                type="number"
+                class="form-control"
+                id="inflationRate"
+                placeholder="Enter average inflation"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="monthlyValue" class="form-label"
+                >Monthly Value ($)</label
+              >
+              <input
+                required
                 type="number"
                 class="form-control"
                 id="monthlyValue"
@@ -62,20 +68,37 @@
                 >Interest Rate (%)</label
               >
               <input
+                required
                 type="number"
                 class="form-control"
                 id="interestRate"
                 placeholder="Enter interest rate"
               />
             </div>
-            <button type="button" class="btn btn-primary" onclick="calculate()">
-              Calculate
-            </button>
-            <div class="result" id="result"></div>
           </form>
+          <button type="button" class="btn btn-primary" onclick="calculate()">
+            Calculate
+          </button>
+          <button type="submit" class="btn btn-primary" id="generate-graph">
+            Generate Graph
+          </button>
+          <button type="reset" class="btn btn-primary">Reset</button>
+          <div class="result" id="result"></div>
+        </div>
+        <div class="chart">
+          <canvas id="resultChart" class="mt-4"></canvas>
+          <button id="downloadPngBtn" class="btn btn-success mt-3">
+            Download as PNG
+          </button>
+          <button id="downloadXlsxBtn" class="btn btn-success mt-3">
+            Download as XLSX
+          </button>
+          <button id="downloadPdfBtn" class="btn btn-success mt-3">
+            Download as PDF
+          </button>
         </div>
       </div>
     </main>
+    <script src="script.js" defer></script>
   </body>
-  <script src="script.js"></script>
 </html>

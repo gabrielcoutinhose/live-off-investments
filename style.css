@@ -7,8 +7,20 @@
   color: black;
 }
 
+:root {
+  --primary-color: #212529;
+  --secondary-color: #343a40;
+  --accent-color: #495057;
+  --background-color: #6c757d;
+  --text-color-1: #adb5bd;
+  --text-color-2: #ced4da;
+  --text-color-3: #dee2e6;
+  --text-color-4: #e9ecef;
+  --text-color-5: #f8f9fa;
+}
+
 body {
-  background-color: gray;
+  background-color: var(--secondary-color);
 
   display: flex;
   flex-direction: column;
@@ -19,14 +31,19 @@ body {
 .container {
   background-color: darkgray;
 
-  padding: 10px;
-  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2px;
+  margin-top: 200px;
 
   height: auto;
   width: auto;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .form {
@@ -37,8 +54,33 @@ body {
 
   border: none;
   border-radius: 8px;
+
+  height: auto;
+  width: auto;
 }
 
 .result {
+  margin-top: 20px;
+}
+
+.chart {
+  background-color: lightgray;
+
+  margin: 8px;
+  padding: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  height: auto;
+  width: auto;
+}
+
+canvas {
+  max-width: 100%;
+  height: 400px;
+}
+
+.resultChart {
   margin-top: 20px;
 }
