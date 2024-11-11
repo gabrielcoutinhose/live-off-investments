@@ -24,8 +24,8 @@
   <body>
     <main>
       <div class="container">
-        <div class="calculatorForm">
-          <form id="financial-form">
+        <div class="calculator">
+          <form id="calculator-form">
             <h1 class="text-center">What is your required value?</h1>
             <div class="mb-3">
               <label for="desiredReturn" class="form-label"
@@ -35,7 +35,7 @@
                 required
                 type="number"
                 class="form-control"
-                id="desiredReturn"
+                id="desiredMonthlyReturn"
                 placeholder="Enter the desired value"
               />
             </div>
@@ -75,15 +75,21 @@
                 placeholder="Enter interest rate"
               />
             </div>
+            <div class="buttons">
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="calculate()"
+              >
+                Calculate
+              </button>
+              <button type="submit" class="btn btn-primary" id="generate-graph">
+                Generate Graph
+              </button>
+              <button type="reset" class="btn btn-primary">Reset</button>
+            </div>
+            <div class="result" id="result"></div>
           </form>
-          <button type="button" class="btn btn-primary" onclick="calculate()">
-            Calculate
-          </button>
-          <button type="submit" class="btn btn-primary" id="generate-graph">
-            Generate Graph
-          </button>
-          <button type="reset" class="btn btn-primary">Reset</button>
-          <div class="result" id="result"></div>
         </div>
         <div class="chart">
           <canvas id="resultChart" class="mt-4"></canvas>
