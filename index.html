@@ -16,19 +16,59 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </head>
-  <body>
+  <body class="light-theme">
+    <header>
+      <h1>Logo</h1>
+      <nav>
+        <button id="themeToggle" class="btn btn-primary">Toggle Theme</button>
+        <div class="dropdown">
+          <button id="languageButton" onclick="toggleDropdown()">
+            <img src="./assets/images/flags/gb.svg" alt="English Flag" />
+            English
+          </button>
+          <div id="languageDropdown" class="dropdown-content">
+            <a href="#" onclick="switchLanguage(0)"
+              ><img
+                class="flag"
+                src="./assets/images/flags/gb.svg"
+                alt="English Flag"
+              />
+              English</a
+            >
+            <a href="#" onclick="switchLanguage(1)"
+              ><img
+                class="flag"
+                src="./assets/images/flags/es.svg"
+                alt="Spanish Flag"
+              />
+              Español</a
+            >
+            <a href="#" onclick="switchLanguage(2)"
+              ><img
+                class="flag"
+                src="./assets/images/flags/pt.svg"
+                alt="Portuguese Flag"
+              />
+              Português</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
     <main>
       <div class="container">
         <div class="calculator">
           <form id="calculator-form">
-            <h1 class="text-center">What is your required value?</h1>
+            <h1 class="text-center" id="title">What is your required value?</h1>
+            <p id="description">test</p>
             <div class="mb-3">
-              <label for="desiredReturn" class="form-label"
+              <label for="desiredMonthlyReturn" class="form-label"
                 >Desired Return Value ($)</label
               >
               <input
@@ -105,6 +145,7 @@
         </div>
       </div>
     </main>
+    <footer><h4>footer here</h4></footer>
     <script src="script.js" defer></script>
   </body>
 </html>

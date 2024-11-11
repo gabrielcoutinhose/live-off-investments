@@ -5,7 +5,7 @@ function calculate() {
   const interestRate =
     parseFloat(document.getElementById("interestRate").value) / 100;
   const desiredReturn = parseFloat(
-    document.getElementById("desiredReturn").value
+    document.getElementById("desiredMonthlyReturn").value
   );
   const inflationRate =
     parseFloat(document.getElementById("inflationRate").value) / 100;
@@ -39,9 +39,7 @@ function calculate() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("calculator-form");
-
   const ctx = document.getElementById("resultChart").getContext("2d");
-
   let resultChart;
 
   form.addEventListener("submit", function (e) {
@@ -148,3 +146,49 @@ document.addEventListener("DOMContentLoaded", function () {
       XLSX.writeFile(wb, "financial_data.xlsx");
     });
 });
+
+const body = document.body;
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-theme");
+  body.classList.toggle("light-theme");
+});
+
+function toggleDropdown() {
+  const dropdown = document.getElementById("languageDropdown");
+  dropdown.style.display =
+    dropdown.style.display === "block" ? "none" : "block";
+}
+
+function switchLanguage(value) {
+  const languages = [
+    { name: "English", flag: "./assets/images/flags/gb.svg" },
+    { name: "Español", flag: "./assets/images/flags/es.svg" },
+    { name: "Português", flag: "./assets/images/flags/pt.svg" },
+  ];
+
+  const content = {
+    0: {
+      title: "Welcome",
+      description: "This is a language switcher example.",
+    },
+    1: {
+      title: "Bienvenido",
+      description: "Este es un ejemplo de selector de idioma.",
+    },
+    2: {
+      title: "Bem-vindo",
+      description: "Este é um exemplo de seletor de idioma.",
+    },
+  };
+
+  document.getElementById("title").textContent = content[value].title;
+  document.getElementById("description").textContent =
+    content[value].description;
+
+  const languageButton = document.getElementById("languageButton");
+  languageButton.innerHTML = `<img src="${languages[value].flag}" alt="${languages[value].name} Flag"> ${languages[value].name}`;
+
+  document.getElementById("languageDropdown").style.display = "none";
+}
