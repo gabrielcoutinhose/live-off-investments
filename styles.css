@@ -3,25 +3,21 @@
   --secondary-color: #343a40;
   --accent-color: #495057;
   --background-color: #6c757d;
-  --text-color-1: #adb5bd;
-  --text-color-2: #ced4da;
-  --text-color-3: #dee2e6;
-  --text-color-4: #e9ecef;
-  --text-color-5: #f8f9fa;
+  --text-color-light: #f8f9fa;
+  --text-color-dark: #dee2e6;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: "Sora", sans-serif;
-  color: White;
+  color: var(--text-color-light);
 }
 
 body {
   background-color: var(--primary-color);
-
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,13 +25,14 @@ body {
 
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: row;
+  justify-content: center;
 
+  margin-top: 20px;
   border: none;
   border-radius: 8px;
 
-  margin-top: 20px;
   padding: 10px;
   background-color: var(--secondary-color);
 
@@ -44,7 +41,9 @@ body {
 }
 .header-itens {
   display: flex;
+  align-items: center;
   flex-direction: row;
+  justify-content: center;
 
   width: 90vw;
   height: auto;
@@ -57,18 +56,31 @@ body {
   background-color: var(--accent-color);
 }
 .logo {
+  width: 100px;
+  height: auto;
+
   font-size: 24px;
   font-weight: bold;
-  margin-top: 7px;
-}
-.nav-itens {
-  display: flex;
-  flex-direction: row;
+  text-align: center;
+  color: var(--text-color-5);
+
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: end;
+  margin-top: 8px;
+  margin-right: 8px;
 }
 .nav {
+  width: 80vw;
+  height: auto;
+
   display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+.nav-itens {
+  margin-right: 8px;
 }
 .nav-item {
   margin-left: 10px;
@@ -176,33 +188,32 @@ button img {
 
 .main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
 
   width: 90vw;
   height: auto;
 
-  margin-top: 20px;
   padding: 10px;
-
-  border: none;
-  border-radius: 8px;
 
   background-color: var(--secondary-color);
 }
 
-.container {
+.box {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 
-  width: 90vw;
+  width: 89vw;
   height: auto;
 
   padding: 10px;
-
-  width: 90vw;
-  height: auto;
 
   border: none;
   border-radius: 8px;
@@ -211,28 +222,25 @@ button img {
 }
 
 .calculator {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
   padding: 10px;
 
   border: none;
   border-radius: 8px;
 
-  width: 90vw;
+  width: 80vw;
   height: auto;
 
   background-color: var(--background-color);
 }
 .form {
-  width: 90vw;
-  height: auto;
+  margin: 10px;
   padding: 10px;
 
   border: none;
   border-radius: 8px;
+
+  width: 80vw;
+  height: auto;
 
   background-color: transparent;
 }
@@ -241,23 +249,24 @@ button img {
   margin-top: 20px;
 }
 .chart {
-  margin: 8px;
-  padding: 8px;
+  margin: 10px;
   padding: 10px;
 
   border: none;
   border-radius: 8px;
 
-  width: 90vw;
+  width: 80vw;
   height: auto;
 
   background-color: var(--background-color);
 }
 canvas {
   max-width: 100%;
-  height: 400px;
+  height: 43vh;
 }
 .resultChart {
   background-color: transparent;
   margin-top: 20px;
 }
+
+/* @media (max-width: 768px) {} */
