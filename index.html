@@ -16,57 +16,62 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </head>
   <body class="light-theme">
-    <header>
-      <h1>Logo</h1>
-      <nav>
-        <button id="themeToggle" class="btn btn-primary">Toggle Theme</button>
-        <div class="dropdown">
-          <button id="languageButton" onclick="toggleDropdown()">
-            <img src="./assets/images/flags/gb.svg" alt="English Flag" />
-            English
-          </button>
-          <div id="languageDropdown" class="dropdown-content">
-            <a href="#" onclick="switchLanguage(0)"
-              ><img
-                class="flag"
-                src="./assets/images/flags/gb.svg"
-                alt="English Flag"
-              />
-              English</a
-            >
-            <a href="#" onclick="switchLanguage(1)"
-              ><img
-                class="flag"
-                src="./assets/images/flags/es.svg"
-                alt="Spanish Flag"
-              />
-              Español</a
-            >
-            <a href="#" onclick="switchLanguage(2)"
-              ><img
-                class="flag"
-                src="./assets/images/flags/pt.svg"
-                alt="Portuguese Flag"
-              />
-              Português</a
-            >
+    <header class="header">
+      <div class="header-itens">
+        <h1 class="logo">Logo</h1>
+        <nav class="nav">
+          <div class="nav-itens">
+            <button id="themeToggle" class="btn btn-primary nav-item">
+              Theme selector
+            </button>
+            <div class="dropdown nav-item">
+              <button id="languageButton" onclick="toggleDropdown()">
+                <img src="./assets/images/flags/gb.svg" alt="English Flag" />
+                English
+              </button>
+              <div id="languageDropdown" class="dropdown-content">
+                <a href="#" onclick="switchLanguage(0)"
+                  ><img
+                    class="flag"
+                    src="./assets/images/flags/gb.svg"
+                    alt="English Flag"
+                  />
+                  English</a
+                >
+                <a href="#" onclick="switchLanguage(1)"
+                  ><img
+                    class="flag"
+                    src="./assets/images/flags/es.svg"
+                    alt="Spanish Flag"
+                  />
+                  Español</a
+                >
+                <a href="#" onclick="switchLanguage(2)"
+                  ><img
+                    class="flag"
+                    src="./assets/images/flags/pt.svg"
+                    alt="Portuguese Flag"
+                  />
+                  Português</a
+                >
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
-    <main>
+    <main class="main">
       <div class="container">
         <div class="calculator">
           <form id="calculator-form">
             <h1 class="text-center" id="title">What is your required value?</h1>
-            <p id="description">test</p>
+            <p id="description"></p>
             <div class="mb-3">
               <label for="desiredMonthlyReturn" class="form-label"
                 >Desired Return Value ($)</label
@@ -145,7 +150,7 @@
         </div>
       </div>
     </main>
-    <footer><h4>footer here</h4></footer>
+    <footer class="footer"><h4>footer here</h4></footer>
     <script src="script.js" defer></script>
   </body>
 </html>
