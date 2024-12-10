@@ -31,10 +31,10 @@ function calculate() {
   }
 
   document.getElementById("result").innerHTML = `
-  <div class="alert alert-success">
-       You will need approximately <strong> ${months} months </strong> to achieve the desired return.
-  </div>
-`;
+    <div class="alert alert-success">
+      You will need approximately <strong>${months}</strong> months to achieve the desired return.
+    </div>
+  `;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,17 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    monthlyValue = parseFloat(document.getElementById("monthlyValue").value);
-    interestRate =
+    const monthlyValue = parseFloat(
+      document.getElementById("monthlyValue").value
+    );
+    const interestRate =
       parseFloat(document.getElementById("interestRate").value) / 100;
-    console.log(interestRate);
-    desiredMonthlyReturn = parseFloat(
+    const desiredMonthlyReturn = parseFloat(
       document.getElementById("desiredMonthlyReturn").value
     );
-    inflationRate =
+    const inflationRate =
       parseFloat(document.getElementById("inflationRate").value) / 100;
 
-    months = Math.ceil(desiredMonthlyReturn / (monthlyValue * interestRate));
+    const months = Math.ceil(
+      desiredMonthlyReturn / (monthlyValue * interestRate)
+    );
 
     const dataLabels = [];
     const dataValues = [];
@@ -94,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Download PNG
   document
     .getElementById("downloadPngBtn")
     .addEventListener("click", function () {
@@ -103,21 +107,21 @@ document.addEventListener("DOMContentLoaded", function () {
       link.click();
     });
 
+  // Download PDF
   document
     .getElementById("downloadPdfBtn")
     .addEventListener("click", function () {
       const { jsPDF } = window.jspdf;
 
       const doc = new jsPDF();
-
       const chartImage = ctx.canvas.toDataURL("image/png");
       doc.addImage(chartImage, "PNG", 10, 10, 180, 100);
-
       doc.text("Financial Graph", 10, 120);
 
       doc.save("financial_report.pdf");
     });
 
+  // Download XLSX
   document
     .getElementById("downloadXlsxBtn")
     .addEventListener("click", function () {
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const desiredMonthlyReturn = parseFloat(
         document.getElementById("desiredMonthlyReturn").value
       );
+
       const months = Math.ceil(
         desiredMonthlyReturn / (monthlyValue * interestRate)
       );
@@ -147,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Theme Toggle Functionality
 const body = document.body;
 const themeToggle = document.getElementById("themeToggle");
 
@@ -155,6 +161,7 @@ themeToggle.addEventListener("click", () => {
   body.classList.toggle("light-theme");
 });
 
+// Language Switcher Functionality
 function toggleDropdown() {
   const dropdown = document.getElementById("languageDropdown");
   dropdown.style.display =
@@ -168,20 +175,17 @@ function switchLanguage(value) {
     { name: "Português", flag: "./assets/images/flags/pt.svg" },
   ];
 
-  const content = {
-    0: {
-      title: "Welcome",
-      description: "This is a language switcher example.",
-    },
-    1: {
+  const content = [
+    { title: "Welcome", description: "This is a language switcher example." },
+    {
       title: "Bienvenido",
       description: "Este es un ejemplo de selector de idioma.",
     },
-    2: {
+    {
       title: "Bem-vindo",
       description: "Este é um exemplo de seletor de idioma.",
     },
-  };
+  ];
 
   document.getElementById("title").textContent = content[value].title;
   document.getElementById("description").textContent =
